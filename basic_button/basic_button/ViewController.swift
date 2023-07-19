@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btn_click.layer.cornerRadius = 10
         lblLable.text = "반갑습니다."
     }
 
