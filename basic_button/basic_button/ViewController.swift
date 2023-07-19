@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var lblLable: UILabel!
-    
+    @IBOutlet var btn_click: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +19,12 @@ class ViewController: UIViewController {
 
     @IBAction func btn_change(_ sender: UIButton) {
         if lblLable.text == "반갑습니다." {
+            btn_click.backgroundColor = .yellow
+            btn_click.setTitleColor(.black, for: .normal)
             lblLable.text = "안녕하세요."
         } else {
+            btn_click.backgroundColor = .blue
+            btn_click.setTitleColor(.white, for: .normal)
             lblLable.text = "반갑습니다."
         }
     }
