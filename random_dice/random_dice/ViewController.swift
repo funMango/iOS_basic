@@ -8,21 +8,28 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let diceImgs = ["black1","black2","black3","black4","black5"]
-    
     @IBOutlet var diceImgView_right: UIImageView!
     @IBOutlet var diceImgView_left: UIImageView!
     
+    // 이미지리터럴 사용법의 변경
+    // #imageLiteral(
+    // 샵 이미지 L(대문자) 리터럴 소괄호열기
+    
+    var diceImgs: [UIImage] = [#imageLiteral(resourceName: "black1"), #imageLiteral(resourceName: "black2"), #imageLiteral(resourceName: "black3"), #imageLiteral(resourceName: "black4"), #imageLiteral(resourceName: "black5"), #imageLiteral(resourceName: "black6")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        diceImgView_left.image = UIImage(named: diceImgs[0])
-        diceImgView_right.image = UIImage(named: diceImgs[0])
+        
     }
     
     @IBAction func roll(_ sender: UIButton) {
-        let diceImg_left = diceImgs[Int.random(in: 0..<5)]
-        let diceImg_right = diceImgs[Int.random(in: 0..<5)]
-        diceImgView_left.image = UIImage(named: diceImg_left)
-        diceImgView_right.image = UIImage(named: diceImg_right)
+        diceImgView_left.image = diceImgs.randomElement()
+        while(true) {
+            let image = diceImgs.randomElement()
+            if (diceImgView_left.image != image) {
+                diceImgView_right.image = image
+                break
+            }
+        }
     }
 }
