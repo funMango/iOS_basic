@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         } else {
             if (humanSelect == 1) {
                 gameResult.text = result[0]
-            } else if(humanSelect == 2) {
+            } else if(humanSelect == 0) {
                 gameResult.text = result[1]
             } else {
                 gameResult.text = result[2]
