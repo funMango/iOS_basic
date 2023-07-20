@@ -14,81 +14,81 @@ class ViewController: UIViewController {
     @IBOutlet var imgView_left: UIImageView!
     @IBOutlet var gameResult: UILabel!
     
-    var rpsArray : [UIImage] = [#imageLiteral(resourceName: "rock"), #imageLiteral(resourceName: "scissors"), #imageLiteral(resourceName: "paper"), #imageLiteral(resourceName: "ready")]
-    var comSelect : Int = -1
-    var humanSelect : Int = -1
-    
-    let rock = 0, scissors = 1, papaer = 2
-    let rpsText : [String] = ["바위", "가위", "보"]
-        
+    var comChoice: Rps = Rps(rawValue: Int.random(in: 0...2))!
+    var myChoice: Rps = Rps.rock
+            
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        comSelect = Int.random(in: 0...2)
     }
 
-
-    @IBAction func scissors(_ sender: UIButton) {
-        humanSelect = 1
-        imgView_right.image = rpsArray[humanSelect]
-        human.text = "가위"
-    }
-    
-    
-    @IBAction func rock(_ sender: UIButton) {
-        humanSelect = 0
-        imgView_right.image = rpsArray[humanSelect]
-        human.text = "바위"
-    }
-    
-    
-    @IBAction func paper(_ sender: UIButton) {
-        humanSelect = 2
-        imgView_right.image = rpsArray[humanSelect]
-        human.text = "보"
-    }
-    
+    @IBAction func rpsButtonTapped(_ sender: UIButton) {
+//        guard let title = sender.currentTitle else {
+//            return
+//        }
+        
+        let title = sender.currentTitle!
+        print(title)
+        
+        switch title {
+        case "가위":
+            myChoice = Rps.scissors
+        case "바위":
+            myChoice = Rps.rock
+        case "보":
+            myChoice = Rps.paper
+        default:
+            break
+        }
+    }            
     
     @IBAction func btn_reset(_ sender: UIButton) {
-        imgView_left.image = rpsArray[3]
-        imgView_right.image = rpsArray[3]
+        gameResult.text = "선택하세요."
+        imgView_left.image = #imageLiteral(resourceName: "ready")
+        imgView_right.image = #imageLiteral(resourceName: "ready")
         computer.text = "준비"
         human.text = "준비"
+        comChoice = Rps(rawValue: Int.random(in: 0...2))!
     }
     
     
     @IBAction func btn_select(_ sender: UIButton) {
-        let result : [String] = ["이겼습니다.", "졌습니다.", "비겼습니다."]
-        imgView_left.image = rpsArray[comSelect]
-        computer.text = rpsText[comSelect]
-        
-        if (comSelect == 0) {
-            if (humanSelect == 2) {
-                gameResult.text = result[0]
-            } else if(humanSelect == 1) {
-                gameResult.text = result[1]
-            } else {
-                gameResult.text = result[2]
-            }
-        } else if (comSelect == 1) {
-            if (humanSelect == 0) {
-                gameResult.text = result[0]
-            } else if(humanSelect == 2) {
-                gameResult.text = result[1]
-            } else {
-                gameResult.text = result[2]
-            }
-        } else {
-            if (humanSelect == 1) {
-                gameResult.text = result[0]
-            } else if(humanSelect == 0) {
-                gameResult.text = result[1]
-            } else {
-                gameResult.text = result[2]
-            }
+        switch comChoice {
+        case .rock:
+            imgView_left.image = #imageLiteral(resourceName: "rock")
+            computer.text = "바위"
+        case .paper:
+            imgView_left.image = #imageLiteral(resourceName: "paper")
+            computer.text = "보"
+        case .scissors:
+            imgView_left.image = #imageLiteral(resourceName: "scissors")
+            computer.text = "가위"
         }
         
-        comSelect = Int.random(in: 0...2)
+        switch myChoice {
+        case .rock:
+            imgView_right.image = #imageLiteral(resourceName: "rock")
+            human.text = "바위"
+        case .paper:
+            imgView_right.image = #imageLiteral(resourceName: "paper")
+            human.text = "보"
+        case .scissors:
+            imgView_right.image = #imageLiteral(resourceName: "scissors")
+            human.text = "가위"
+        }
+        
+        if comChoice == myChoice {
+            gameResult.text = "비겼습니다."
+        } else if comChoice == .rock && myChoice == .paper {
+            gameResult.text = "이겼습니다."
+        } else if comChoice == .paper && myChoice == .scissors {
+            gameResult.text = "이겼습니다."
+        } else if comChoice == .scissors && myChoice == .rock {
+            gameResult.text = "이겼습니다."
+        } else {
+            gameResult.text = "졌습니다."
+        }
+        
+        comChoice = Rps(rawValue: Int.random(in: 0...2))!
     }
 }
 
