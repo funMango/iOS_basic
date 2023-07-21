@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         lblResult.text = "선택하세요"
     }
     
-    @IBAction func btn_number(_ sender: UIButton) {
+    @IBAction func btn_numberTap(_ sender: UIButton) {
         guard let selected = sender.currentTitle else {return}
         lblNumber.text = selected
     }
