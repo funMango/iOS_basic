@@ -32,9 +32,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderChanged(_ sender: UISlider) {
-        let seconds = Int(slider.value)
-        counter = seconds
-        lblSecond.text = "\(seconds) 초"
+        counter = Int(slider.value)
+        lblSecond.text = "\(counter) 초"
     }
     
     @IBAction func btnReset(_ sender: UIButton) {
