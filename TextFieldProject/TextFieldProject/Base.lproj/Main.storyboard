@@ -18,15 +18,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EWe-Pe-Xyd">
-                                <rect key="frame" x="20" y="239" width="353" height="34"/>
+                                <rect key="frame" x="20" y="239" width="353" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Scr-yN-UQH">
-                                        <rect key="frame" x="0.0" y="0.0" width="283" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="283" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHi-kA-4FP">
-                                        <rect key="frame" x="293" y="0.0" width="60" height="34"/>
+                                        <rect key="frame" x="293" y="0.0" width="60" height="50"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="YVo-nZ-RT9"/>
@@ -36,8 +36,14 @@
                                         <state key="normal" title="Done">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btn_done:" destination="BYZ-38-t0r" eventType="touchUpInside" id="li6-Ba-ONH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6MI-jr-erU"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -48,6 +54,9 @@
                             <constraint firstItem="EWe-Pe-Xyd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="180" id="ykl-ui-2uX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="Scr-yN-UQH" id="Ac4-A0-05M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

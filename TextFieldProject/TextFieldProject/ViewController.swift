@@ -8,12 +8,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setUp()
+    }
+    
+    func setUp() {
+        view.backgroundColor = UIColor.gray
+        
+        textField.keyboardType = UIKeyboardType.numberPad
     }
 
-
+    @IBAction func btnDoneTapped(_ sender: UIButton) {
+        
+    }
 }
-
