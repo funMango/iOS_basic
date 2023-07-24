@@ -15,18 +15,21 @@ class ViewController: UIViewController {
     @IBOutlet var slider: UISlider!
     @IBOutlet var btn_start: UIButton!
         
-    var timer: Timer?
+    weak var timer: Timer?
     var counter = 0
     var timerStart = false
     var isPaused = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+    }
+    
+    func configureUI() {
         slider.minimumValue = 0.0
         slider.maximumValue = 60.0
         slider.setValue(30.0, animated: true)
     }
-    
     
     @IBAction func sliderChanged(_ sender: UISlider) {
         let seconds = Int(slider.value)
@@ -35,12 +38,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnReset(_ sender: UIButton) {
-        timerStart = false
-        isPaused = false
-        counter = 0
-        lblSecond.text = "초를 선택하세요"
-        slider.setValue(30.0, animated: true)
-        stopTimer()
+        resetTimer()
     }
     
     @IBAction func btnStart(_ sender: UIButton) {
@@ -77,7 +75,7 @@ class ViewController: UIViewController {
         lblSecond.text = "\(counter) 초"
         
         if counter == 0 {
-            stopTimer()
+            resetTimer()
         }
     }
     
@@ -100,6 +98,17 @@ class ViewController: UIViewController {
         timer = nil
         isPaused = false
         AudioServicesPlaySystemSound(SystemSoundID(1000))
+        counter = 0
+    }
+    
+    func resetTimer() {
+        timerStart = false
+        isPaused = false
+        counter = 0
+        lblSecond.text = "초를 선택하세요"
+        slider.setValue(30.0, animated: true)
+        stopTimer()
+        btn_start.setTitle("START", for: .normal)
     }
 }
 
