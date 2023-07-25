@@ -26,6 +26,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.becomeFirstResponder()
     }
     
+    // 화면의 탭을 감지하는 메서드
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
