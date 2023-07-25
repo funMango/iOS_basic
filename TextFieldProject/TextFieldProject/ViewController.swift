@@ -13,9 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         textField.delegate = self // self = ViewController
-        
         setUp()
     }
     
@@ -25,17 +23,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.placeholder = "email을 입력해 주세요"
         textField.borderStyle = .roundedRect
         textField.clearButtonMode = .always
+        textField.becomeFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // 텍스트필드의 입력을 시작할대 호출 (시작할지 말지의 여부 허락하는 것)
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
         print(#function)
         return true
     }
     
     // 시점 - 유저가 입력을 시작할때
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
         print(#function)
         print("유저가 입력 시작")
     }
@@ -48,8 +51,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // 텍스트필드 글자 내용이 (한글자 한글자) 입력되거나 지워질때 호출이 되고 (허락)
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 10
+        let maxLength = 20
         let currentText = textField.text ?? "" // textField의 값이 nil이 아니라면 textField의 값을 currentText에 할당하지만 nil이라면 ""를 할당
+        print(range)
         let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
         return newText.count <= maxLength
     }
@@ -70,9 +74,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         print(#function)
         print("유저가 텍스트필드의 입력을 끝냈다..")
+        textField.text = ""
     }
 
     @IBAction func btnDoneTapped(_ sender: UIButton) {
-        
+        textField.resignFirstResponder()
     }
 }

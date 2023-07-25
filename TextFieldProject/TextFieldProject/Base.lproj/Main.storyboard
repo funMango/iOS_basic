@@ -37,7 +37,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="btn_done:" destination="BYZ-38-t0r" eventType="touchUpInside" id="li6-Ba-ONH"/>
+                                            <action selector="btnDoneTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iQW-My-jhn"/>
                                         </connections>
                                     </button>
                                 </subviews>
