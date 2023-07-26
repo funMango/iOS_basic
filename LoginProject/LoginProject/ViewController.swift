@@ -88,7 +88,7 @@ class ViewController: UIViewController {
         button.setTitle("표시", for: .normal)
         button.setTitleColor(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .light)
-        //button.addTarget(self, action: #selector(passwordSecureModeSetting), for: .touchUpInside)
+        button.addTarget(self, action: #selector(passwordSecureModeSetting), for: .touchUpInside)
         return button
     }()
     
@@ -105,6 +105,17 @@ class ViewController: UIViewController {
         //button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         return button
     }()
+    
+    // 비밀번호 재설정 버튼
+    private lazy var passwordResetButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.setTitle("비밀번호 재설정", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     
     lazy var stackView: UIStackView = {
        let st = UIStackView(arrangedSubviews: [emailTextFieldView, passwordTextFieldView, loginButton])
@@ -126,6 +137,7 @@ class ViewController: UIViewController {
     func setupAutoLayout() {
         view.backgroundColor = UIColor.black
         view.addSubview(stackView)
+        view.addSubview(passwordResetButton)
         
         emailInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -168,6 +180,33 @@ class ViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             stackView.heightAnchor.constraint(equalToConstant: textViewHeight*3 + 36),
         ])
+        
+        passwordResetButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            passwordResetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            passwordResetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            passwordResetButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
+            passwordResetButton.heightAnchor.constraint(equalToConstant: textViewHeight),
+        ])
+    }
+    
+    @objc func resetButtonTapped() {
+        let alertController = UIAlertController(title: "비밀번호 재설정", message: "비밀번호를 재설정하시겠습니까?", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .default) { action in
+            print("비밀번호 재설정 확인 버튼이 눌렸습니다.")
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { action in
+            print("비밀번호 재설정 취소 버튼이 눌렸습니다.")
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func passwordSecureModeSetting() {
+        passwordTextField.isSecureTextEntry.toggle()
     }
 }
 
