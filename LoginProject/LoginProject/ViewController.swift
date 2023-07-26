@@ -125,12 +125,33 @@ class ViewController: UIViewController {
         st.alignment = .fill
         return st
     }()
+    
+    lazy var emailInfoLabelCenterYConstraint = emailInfoLabel.centerYAnchor.constraint(equalTo: emailTextFieldView.centerYAnchor)
+    lazy var passwordInfoLabelCenterYConstraint = passwordInfoLabel.centerYAnchor.constraint(equalTo: passwordTextFieldView.centerYAnchor)
                 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAutoLayout()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        keyboardControl()        
+    }
+    
+    func keyboardControl() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardDidShowNotification, object: nil)
+    }
+        
+    deinit {
+        // 옵저버 제거
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func showKeyboard() {
+        if emailTextField.isFirstResponder {
+            emailTextField.becomeFirstResponder()
+        } else if passwordTextField.isFirstResponder {
+            passwordTextField.becomeFirstResponder()
+        }
     }
     
     // 3개의 각 텍스트필드 및 로그인 버튼의 높이 설정
@@ -217,15 +238,20 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
     
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == emailTextField {
+            emailTextFieldView.backgroundColor = #colorLiteral(red: 0.2972877622, green: 0.2973434925, blue: 0.297280401, alpha: 1)
+            
             UIView.animate(withDuration: 0.3) {
-                    self.emailInfoLabel.font = UIFont.systemFont(ofSize: 11)
-                    self.emailInfoLabel.transform = CGAffineTransform(translationX: 0, y: -13)
+                self.emailInfoLabel.font = UIFont.systemFont(ofSize: 11)
+                self.emailInfoLabel.transform = CGAffineTransform(translationX: 0, y: -13)
             }
         }
         
         if textField == passwordTextField {
+            passwordTextFieldView.backgroundColor = #colorLiteral(red: 0.2972877622, green: 0.2973434925, blue: 0.297280401, alpha: 1)
+            
             UIView.animate(withDuration: 0.3) {
                 self.passwordInfoLabel.font = UIFont.systemFont(ofSize: 11)
                 self.passwordInfoLabel.transform = CGAffineTransform(translationX: 0, y: -13)
@@ -235,16 +261,20 @@ extension ViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == emailTextField {
-            if let text = textField.text, text.isEmpty {
+            emailTextFieldView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+            
+            if emailTextField.text == "" {
                 UIView.animate(withDuration: 0.3) {
-                        self.emailInfoLabel.font = UIFont.systemFont(ofSize: 18)
-                        self.emailInfoLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+                    self.emailInfoLabel.font = UIFont.systemFont(ofSize: 18)
+                    self.emailInfoLabel.transform = CGAffineTransform(translationX: 0, y: 0)
                 }
             }
         }
         
         if textField == passwordTextField {
-            if let text = textField.text, text.isEmpty {
+            passwordTextFieldView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+            
+            if passwordTextField.text == "" {
                 UIView.animate(withDuration: 0.3) {
                     self.passwordInfoLabel.font = UIFont.systemFont(ofSize: 18)
                     self.passwordInfoLabel.transform = CGAffineTransform(translationX: 0, y: 0)
