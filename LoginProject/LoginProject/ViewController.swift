@@ -219,10 +219,10 @@ extension ViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == emailTextField {
-            UIView.transition(with: emailInfoLabel, duration: 0.3, options: [.transitionCrossDissolve, .curveEaseInOut], animations: {
+            UIView.animate(withDuration: 0.3) {
                     self.emailInfoLabel.font = UIFont.systemFont(ofSize: 11)
                     self.emailInfoLabel.transform = CGAffineTransform(translationX: 0, y: -13)
-                }, completion: nil)
+            }
         }
         
         if textField == passwordTextField {
