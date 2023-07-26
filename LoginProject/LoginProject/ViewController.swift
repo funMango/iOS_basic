@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         tf.autocorrectionType = .no
         tf.spellCheckingType = .no
         tf.keyboardType = .emailAddress
-        //tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
+        tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
         tf.spellCheckingType = .no
         tf.isSecureTextEntry = true
         tf.clearsOnBeginEditing = false
-        //tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
+        tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
@@ -134,15 +134,19 @@ class ViewController: UIViewController {
         setupAutoLayout()
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        keyboardControl()        
+        keyboardControl()
+       
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }    
+
     func keyboardControl() {
         NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardDidShowNotification, object: nil)
     }
         
     deinit {
-        // 옵저버 제거
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -231,13 +235,10 @@ class ViewController: UIViewController {
     @objc func passwordSecureModeSetting() {
         passwordTextField.isSecureTextEntry.toggle()
     }
-    
-    
 }
 
 
 extension ViewController: UITextFieldDelegate {
-    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == emailTextField {
@@ -281,6 +282,25 @@ extension ViewController: UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    @objc func textFieldEditingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard
+            let email = emailTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty
+        else {
+            loginButton.backgroundColor = .clear
+            loginButton.isEnabled = false
+            return
+        }
+        loginButton.backgroundColor = .red
+        loginButton.isEnabled = true
     }
 }
 
