@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         view.clipsToBounds = true
         view.addSubview(passwordTextField)
         view.addSubview(passwordInfoLabel)
-        //view.addSubview(passwordSecureButton)
+        view.addSubview(passwordSecureButton)
         return view
     }()
     
@@ -117,27 +117,57 @@ class ViewController: UIViewController {
                 
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeUI()
+        setupAutoLayout()
     }
     
-    func makeUI() {
-        view.addSubview(emailTextFieldView)
+    // 3개의 각 텍스트필드 및 로그인 버튼의 높이 설정
+    private let textViewHeight: CGFloat = 48
+    
+    func setupAutoLayout() {
+        view.backgroundColor = UIColor.black
+        view.addSubview(stackView)
         
         emailInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             emailInfoLabel.leadingAnchor.constraint(equalTo: emailTextFieldView.leadingAnchor, constant: 8),
-            emailInfoLabel.trailingAnchor.constraint(equalTo: emailTextFieldView.trailingAnchor, constant: 8),
+            emailInfoLabel.trailingAnchor.constraint(equalTo: emailTextFieldView.trailingAnchor, constant: -8),
             emailInfoLabel.centerYAnchor.constraint(equalTo: emailTextFieldView.centerYAnchor),
         ])
-        
-        
-        
-        
+                                
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.leadingAnchor.constraint(equalTo: emailTextFieldView.leadingAnchor, constant: 8).isActive = true
-        emailTextField.trailingAnchor.constraint(equalTo: emailTextFieldView.trailingAnchor, constant: 8).isActive = true
+        emailTextField.trailingAnchor.constraint(equalTo: emailTextFieldView.trailingAnchor, constant: -8).isActive = true
         emailTextField.topAnchor.constraint(equalTo: emailTextFieldView.topAnchor, constant: 15).isActive = true
-        emailTextField.bottomAnchor.constraint(equalTo: emailTextFieldView.bottomAnchor, constant: 2).isActive = true
+        emailTextField.bottomAnchor.constraint(equalTo: emailTextFieldView.bottomAnchor, constant: -2).isActive = true
+        
+        passwordInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            passwordInfoLabel.leadingAnchor.constraint(equalTo: passwordTextFieldView.leadingAnchor, constant: 8),
+            passwordInfoLabel.trailingAnchor.constraint(equalTo: passwordTextFieldView.trailingAnchor, constant: -8),
+            passwordInfoLabel.centerYAnchor.constraint(equalTo: passwordTextFieldView.centerYAnchor),
+            
+            passwordTextField.leadingAnchor.constraint(equalTo: passwordTextFieldView.leadingAnchor, constant: 8),
+            passwordTextField.trailingAnchor.constraint(equalTo: passwordTextFieldView.trailingAnchor, constant: -8),
+            passwordTextField.topAnchor.constraint(equalTo: passwordTextFieldView.topAnchor, constant: 15),
+            passwordTextField.bottomAnchor.constraint(equalTo: passwordTextFieldView.bottomAnchor, constant: -2),
+        ])
+        
+        passwordSecureButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            passwordSecureButton.topAnchor.constraint(equalTo: passwordTextFieldView.topAnchor, constant: 15),
+            passwordSecureButton.bottomAnchor.constraint(equalTo: passwordTextFieldView.bottomAnchor, constant: -15),
+            passwordSecureButton.trailingAnchor.constraint(equalTo: passwordTextFieldView.trailingAnchor, constant: -8),
+        ])
+                
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            stackView.heightAnchor.constraint(equalToConstant: textViewHeight*3 + 36),
+        ])
     }
 }
 
