@@ -129,6 +129,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAutoLayout()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     // 3개의 각 텍스트필드 및 로그인 버튼의 높이 설정
@@ -207,6 +209,48 @@ class ViewController: UIViewController {
     
     @objc func passwordSecureModeSetting() {
         passwordTextField.isSecureTextEntry.toggle()
+    }
+    
+    
+}
+
+
+extension ViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == emailTextField {
+            UIView.transition(with: emailInfoLabel, duration: 0.3, options: [.transitionCrossDissolve, .curveEaseInOut], animations: {
+                    self.emailInfoLabel.font = UIFont.systemFont(ofSize: 11)
+                    self.emailInfoLabel.transform = CGAffineTransform(translationX: 0, y: -13)
+                }, completion: nil)
+        }
+        
+        if textField == passwordTextField {
+            UIView.animate(withDuration: 0.3) {
+                self.passwordInfoLabel.font = UIFont.systemFont(ofSize: 11)
+                self.passwordInfoLabel.transform = CGAffineTransform(translationX: 0, y: -13)
+            }
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == emailTextField {
+            if let text = textField.text, text.isEmpty {
+                UIView.animate(withDuration: 0.3) {
+                        self.emailInfoLabel.font = UIFont.systemFont(ofSize: 18)
+                        self.emailInfoLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+                }
+            }
+        }
+        
+        if textField == passwordTextField {
+            if let text = textField.text, text.isEmpty {
+                UIView.animate(withDuration: 0.3) {
+                    self.passwordInfoLabel.font = UIFont.systemFont(ofSize: 18)
+                    self.passwordInfoLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+                }
+            }
+        }
     }
 }
 
