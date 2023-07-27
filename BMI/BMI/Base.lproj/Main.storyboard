@@ -28,6 +28,9 @@
                                 <state key="normal" title="BMI 계산하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="bmiCaculateTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d2i-Ns-0db"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xel-Je-yZS">
                                 <rect key="frame" x="30" y="189" width="333" height="145"/>
@@ -46,7 +49,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="idV-hR-TyM"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -68,7 +71,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="QRd-mQ-5ei"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -86,7 +89,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="xel-Je-yZS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="2tS-GE-MYc"/>
                             <constraint firstItem="xel-Je-yZS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="130" id="7XH-f4-YSp"/>
@@ -96,15 +99,19 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lgc-BZ-hav" secondAttribute="trailing" constant="20" id="g6X-Nw-w6C"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="heightTextFeild" destination="34n-Bs-m9H" id="is5-fG-FZa"/>
+                        <outlet property="weightTextFeild" destination="qP6-56-96S" id="AAw-Ub-Rfp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="DGK-YR-N1w">
             <objects>
-                <viewController id="D5k-9X-5E5" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resultVC" id="D5k-9X-5E5" customClass="ResultViewController" customModule="BMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o9h-0U-lIY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,10 +157,13 @@
                                 <state key="normal" title="다시 계산하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="recalculateTapped:" destination="D5k-9X-5E5" eventType="touchUpInside" id="wke-vh-QgN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="akg-ks-WdM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="Usi-nc-utw" firstAttribute="centerX" secondItem="o9h-0U-lIY" secondAttribute="centerX" id="0e5-2Z-8Fv"/>
                             <constraint firstItem="akg-ks-WdM" firstAttribute="trailing" secondItem="DZK-4S-Gc1" secondAttribute="trailing" constant="20" id="AAH-Ee-TUo"/>
@@ -162,6 +172,10 @@
                             <constraint firstItem="DZK-4S-Gc1" firstAttribute="leading" secondItem="akg-ks-WdM" secondAttribute="leading" constant="20" id="ovE-vS-ew7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblBmiResult" destination="a2D-4a-Zuy" id="AFA-pg-axH"/>
+                        <outlet property="lblBmiSubResult" destination="7bC-u1-s43" id="yzX-SE-s9E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IeY-rw-F9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,8 +189,8 @@
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
