@@ -24,11 +24,11 @@ class ViewController: UIViewController {
     
     // 2) 코드로 스토리보드 객체를 생성해서, 화면 이동
     @IBAction func storyboardWithCodeButtonTapped(_ sender: UIButton) {
-
+        guard let secondVC = storyboard?.instantiateViewController(withIdentifier: "secondVC") as? SecondViewController
+        else { return }
         
-        
-        
-        
+        secondVC.someString = "아빠상어"
+        present(secondVC, animated: true, completion: nil)
     }
     
     
