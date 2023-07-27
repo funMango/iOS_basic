@@ -43,6 +43,22 @@ class ViewController: UIViewController {
             guard let thirdVC = segue.destination as? ThirdViewController else { return }
             thirdVC.someString = "엄마상어"
         }
+        
+        if segue.identifier == "toFourthVC" {
+            guard let fourthVC = segue.destination as? FourthViewController else { return }
+            fourthVC.someString = "이모상어"
+        }
     }
+    
+    // 4) 스토리보드에서의 화면 이동(직접 세그웨이)
+    let num = 3
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if num < 5 {
+            return false
+        } else {
+            return true
+        }
+    }    
 }
 
