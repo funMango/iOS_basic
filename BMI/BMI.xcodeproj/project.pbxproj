@@ -14,6 +14,7 @@
 		5A9C6F552A72739A00FB5C57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A9C6F542A72739A00FB5C57 /* Assets.xcassets */; };
 		5A9C6F582A72739A00FB5C57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A9C6F562A72739A00FB5C57 /* LaunchScreen.storyboard */; };
 		5A9C6F602A72A63D00FB5C57 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C6F5F2A72A63D00FB5C57 /* ResultViewController.swift */; };
+		5A9C6F622A72B81400FB5C57 /* BMIStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C6F612A72B81400FB5C57 /* BMIStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		5A9C6F572A72739A00FB5C57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A9C6F592A72739A00FB5C57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A9C6F5F2A72A63D00FB5C57 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		5A9C6F612A72B81400FB5C57 /* BMIStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				5A9C6F4D2A72739900FB5C57 /* SceneDelegate.swift */,
 				5A9C6F4F2A72739900FB5C57 /* ViewController.swift */,
 				5A9C6F5F2A72A63D00FB5C57 /* ResultViewController.swift */,
+				5A9C6F612A72B81400FB5C57 /* BMIStatus.swift */,
 				5A9C6F512A72739900FB5C57 /* Main.storyboard */,
 				5A9C6F542A72739A00FB5C57 /* Assets.xcassets */,
 				5A9C6F562A72739A00FB5C57 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				5A9C6F4C2A72739800FB5C57 /* AppDelegate.swift in Sources */,
 				5A9C6F4E2A72739900FB5C57 /* SceneDelegate.swift in Sources */,
 				5A9C6F602A72A63D00FB5C57 /* ResultViewController.swift in Sources */,
+				5A9C6F622A72B81400FB5C57 /* BMIStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
