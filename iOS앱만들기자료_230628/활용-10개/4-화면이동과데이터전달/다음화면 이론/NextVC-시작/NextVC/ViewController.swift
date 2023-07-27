@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +16,10 @@ class ViewController: UIViewController {
     
     // 1) 코드로 화면 이동 (다음화면이 코드로 작성되어있을때만 가능한 방법)
     @IBAction func codeNextButtonTapped(_ sender: UIButton) {
-
-        
-        
-        
-        
+        let firstVC = FirstViewController()
+        firstVC.someString = "아기상어"
+        firstVC.modalPresentationStyle = .automatic
+        present(firstVC, animated: true, completion: nil)        
     }
     
     // 2) 코드로 스토리보드 객체를 생성해서, 화면 이동

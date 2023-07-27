@@ -102,7 +102,7 @@ class ViewController: UIViewController {
         button.setTitle("로그인", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.isEnabled = false
-        //button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -140,7 +140,7 @@ class ViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }    
+    }
 
     func keyboardControl() {
         NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardDidShowNotification, object: nil)
@@ -217,6 +217,11 @@ class ViewController: UIViewController {
         ])
     }
     
+    @objc func loginButtonTapped() {
+        // 서버랑 통신해서, 다음 화면으로 넘어가는 내용 구현
+        print("다음 화면으로 넘어가기")
+    }
+    
     @objc func resetButtonTapped() {
         let alertController = UIAlertController(title: "비밀번호 재설정", message: "비밀번호를 재설정하시겠습니까?", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "확인", style: .default) { action in
@@ -237,7 +242,7 @@ class ViewController: UIViewController {
     }
 }
 
-
+// MARK: - 확장
 extension ViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
