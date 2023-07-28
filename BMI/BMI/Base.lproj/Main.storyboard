@@ -101,8 +101,8 @@
                     </view>
                     <connections>
                         <outlet property="calculateBtn" destination="lgc-BZ-hav" id="ntc-hf-wIZ"/>
-                        <outlet property="heightTextFeild" destination="34n-Bs-m9H" id="is5-fG-FZa"/>
-                        <outlet property="weightTextFeild" destination="qP6-56-96S" id="AAw-Ub-Rfp"/>
+                        <outlet property="heightTextField" destination="34n-Bs-m9H" id="is5-fG-FZa"/>
+                        <outlet property="weightTextField" destination="qP6-56-96S" id="AAw-Ub-Rfp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
