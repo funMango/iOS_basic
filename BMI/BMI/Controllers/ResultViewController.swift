@@ -16,21 +16,19 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp()
+        configureUI()
         setResult()
     }
     
-    func setUp() {
+    private func configureUI() {
         lblBmiResult.layer.cornerRadius = 8.0 // 원하는 반지름 값으로 설정
         lblBmiResult.layer.masksToBounds = true // 레이어의 경계를 벗어나는 부분을 잘라냅니다.
     }
     
     private func setResult() {
-        if let bmi = bmiResult {
-            lblBmiResult.text = String(format: "%.2f", bmi.value)
-            lblBmiResult.backgroundColor = bmi.matchColor
-            lblBmiSubResult.text = bmi.advice
-        }
+        lblBmiResult.text = String(format: "%.2f", bmiResult!.value)
+        lblBmiResult.backgroundColor = bmiResult?.matchColor
+        lblBmiSubResult.text = bmiResult?.advice
     }    
     
     @IBAction func recalculateTapped(_ sender: UIButton) {

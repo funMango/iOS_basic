@@ -12,16 +12,15 @@ class ViewController: UIViewController {
     @IBOutlet var heightTextField: UITextField!
     @IBOutlet var weightTextField: UITextField!
     @IBOutlet var calculateBtn: UIButton!
-    
-    
+        
     var bmiManager = BMICalculator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp()
+        configureUI()
     }
     
-    func setUp() {
+    private func configureUI() {
         heightTextField.delegate = self
         weightTextField.delegate = self
         
@@ -35,7 +34,8 @@ class ViewController: UIViewController {
         heightTextField.resignFirstResponder()
         weightTextField.resignFirstResponder()
         
-        if let heightText = heightTextField.text, let weightText = weightTextField.text {
+        if  let heightText = heightTextField.text, !heightText.isEmpty,
+            let weightText = weightTextField.text, !weightText.isEmpty {
             if let resultVC = storyboard?.instantiateViewController(withIdentifier: "resultVC") as? ResultViewController {
                 resultVC.bmiResult = bmiManager.getBMI(height: heightText, weight: weightText)
                 present(resultVC, animated: true, completion: nil)
@@ -49,9 +49,9 @@ class ViewController: UIViewController {
         reset()
     }
     
-    func reset() {
-        heightTextField.text = ""
-        weightTextField.text = ""
+    private func reset() {
+        heightTextField.text = nil
+        weightTextField.text = nil
     }
 }
 
@@ -68,7 +68,7 @@ extension ViewController: UITextFieldDelegate {
         }
         
         // 숫자가 아닌 문자는 입력할 수 없게 합니다.
-        let allowedCharacters = CharacterSet.decimalDigits
+        let allowedCharacters = CharacterSet(charactersIn: "0123456789.")
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
     }

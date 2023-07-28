@@ -33,9 +33,9 @@ struct BMICalculator {
         case 18.6..<25.0:
             bmiStatus = BMIStatus.normalWeight
         case 25.1..<30.0:
-            bmiStatus = BMIStatus.obesity
-        case 30.0...:
             bmiStatus = BMIStatus.overweight
+        case 30.0...:
+            bmiStatus = BMIStatus.obesity
         default:
             bmiStatus = nil
         }
