@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet var weightTextField: UITextField!
     @IBOutlet var calculateBtn: UIButton!
     
-    var height: Double?
-    var weight: Double?
+    
+    var bmiManager = BMICalculator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,62 +30,28 @@ class ViewController: UIViewController {
         heightTextField.placeholder = "cm단위로 입력해주세요."
         weightTextField.placeholder = "kg단위로 입력해주세요."
     }
-            
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == heightTextField {
-            if let heightValue = Double(textField.text ?? "") {
-                height = heightValue
-            } else {
-                height = nil
-            }
-        } else if textField == weightTextField {
-            if let weightValue = Double(textField.text ?? "") {
-                weight = weightValue
-            } else {
-                weight = nil
-            }
-        }
-    }
     
     @IBAction func calculateBtnTapped(_ sender: UIButton) {
-        // 입력된 값을 저장하기 위해 텍스트 필드가 편집 상태를 끝냅니다.
         heightTextField.resignFirstResponder()
         weightTextField.resignFirstResponder()
         
-        if let heightValue = Double(heightTextField.text ?? ""), let weightValue = Double(weightTextField.text ?? "") {
-            height = heightValue
-            weight = weightValue
-            
-            // 데이터 전달
+        if let heightText = heightTextField.text, let weightText = weightTextField.text {
             if let resultVC = storyboard?.instantiateViewController(withIdentifier: "resultVC") as? ResultViewController {
-                resultVC.bmiResult = caculateBMI()
-                // 화면 이동
+                resultVC.bmiResult = bmiManager.getBMI(height: heightText, weight: weightText)
                 present(resultVC, animated: true, completion: nil)
             }
-            
-            reset()
         } else {
-            // 유효하지 않은 입력에 대한 알림창 표시하기
-            let alert = UIAlertController(title: "유효하지 않은 입력", message: "키와 몸무게에 유효한 숫자 값을 입력해주세요.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "입력 오류", message: "키와 몸무게를 입력해주세요.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
         }
-    }
-    
-    func caculateBMI() -> Double {
-        if let height = height, let weight = weight {
-            let heightInMeters = Double(height) / 100.0 // 키를 미터로 변환
-            return Double(weight) / (heightInMeters * heightInMeters)
-        } else {
-            return -1.0
-        }
+        
+        reset()
     }
     
     func reset() {
-        heightTextField.text = nil
-        weightTextField.text = nil
-        height = nil
-        weight = nil
+        heightTextField.text = ""
+        weightTextField.text = ""
     }
 }
 
