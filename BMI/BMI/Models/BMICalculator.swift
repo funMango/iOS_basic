@@ -14,8 +14,7 @@ struct BMICalculator {
         calculateBMI(height: height, weight: weight)
         return bmi ?? BMI(value: 0.0, advice: "문제발생", matchColor: UIColor.white)
     }
-    
-    
+        
     private mutating func calculateBMI(height: String, weight: String) {
         guard let heightValue = Double(height), let weightValue = Double(weight)
         else {
