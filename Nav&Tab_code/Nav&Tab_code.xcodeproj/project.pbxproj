@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		5AFCC18D2A78B83400FE73DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCC18C2A78B83400FE73DB /* AppDelegate.swift */; };
 		5AFCC18F2A78B83400FE73DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCC18E2A78B83400FE73DB /* SceneDelegate.swift */; };
-		5AFCC1912A78B83400FE73DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCC1902A78B83400FE73DB /* ViewController.swift */; };
+		5AFCC1912A78B83400FE73DB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCC1902A78B83400FE73DB /* LoginViewController.swift */; };
 		5AFCC1942A78B83400FE73DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCC1922A78B83400FE73DB /* Main.storyboard */; };
 		5AFCC1962A78B83500FE73DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCC1952A78B83500FE73DB /* Assets.xcassets */; };
 		5AFCC1992A78B83500FE73DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCC1972A78B83500FE73DB /* LaunchScreen.storyboard */; };
+		5AFCC1A12A78C14500FE73DB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCC1A02A78C14500FE73DB /* FirstViewController.swift */; };
+		5AFCC1A32A78C15400FE73DB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCC1A22A78C15400FE73DB /* SecondViewController.swift */; };
+		5AFCC1A52A78C16500FE73DB /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCC1A42A78C16500FE73DB /* ThirdViewController.swift */; };
+		5AFCC1A72A78C17800FE73DB /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCC1A62A78C17800FE73DB /* FourthViewController.swift */; };
+		5AFCC1A92A78C18900FE73DB /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCC1A82A78C18900FE73DB /* FifthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5AFCC1892A78B83400FE73DB /* Nav&Tab_code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nav&Tab_code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFCC18C2A78B83400FE73DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AFCC18E2A78B83400FE73DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5AFCC1902A78B83400FE73DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5AFCC1902A78B83400FE73DB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5AFCC1932A78B83400FE73DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AFCC1952A78B83500FE73DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AFCC1982A78B83500FE73DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AFCC19A2A78B83500FE73DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AFCC1A02A78C14500FE73DB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		5AFCC1A22A78C15400FE73DB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		5AFCC1A42A78C16500FE73DB /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		5AFCC1A62A78C17800FE73DB /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		5AFCC1A82A78C18900FE73DB /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +68,12 @@
 			children = (
 				5AFCC18C2A78B83400FE73DB /* AppDelegate.swift */,
 				5AFCC18E2A78B83400FE73DB /* SceneDelegate.swift */,
-				5AFCC1902A78B83400FE73DB /* ViewController.swift */,
+				5AFCC1902A78B83400FE73DB /* LoginViewController.swift */,
+				5AFCC1A02A78C14500FE73DB /* FirstViewController.swift */,
+				5AFCC1A22A78C15400FE73DB /* SecondViewController.swift */,
+				5AFCC1A42A78C16500FE73DB /* ThirdViewController.swift */,
+				5AFCC1A62A78C17800FE73DB /* FourthViewController.swift */,
+				5AFCC1A82A78C18900FE73DB /* FifthViewController.swift */,
 				5AFCC1922A78B83400FE73DB /* Main.storyboard */,
 				5AFCC1952A78B83500FE73DB /* Assets.xcassets */,
 				5AFCC1972A78B83500FE73DB /* LaunchScreen.storyboard */,
@@ -138,9 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AFCC1912A78B83400FE73DB /* ViewController.swift in Sources */,
+				5AFCC1912A78B83400FE73DB /* LoginViewController.swift in Sources */,
 				5AFCC18D2A78B83400FE73DB /* AppDelegate.swift in Sources */,
 				5AFCC18F2A78B83400FE73DB /* SceneDelegate.swift in Sources */,
+				5AFCC1A72A78C17800FE73DB /* FourthViewController.swift in Sources */,
+				5AFCC1A92A78C18900FE73DB /* FifthViewController.swift in Sources */,
+				5AFCC1A32A78C15400FE73DB /* SecondViewController.swift in Sources */,
+				5AFCC1A52A78C16500FE73DB /* ThirdViewController.swift in Sources */,
+				5AFCC1A12A78C14500FE73DB /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
