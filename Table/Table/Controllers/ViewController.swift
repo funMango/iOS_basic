@@ -26,19 +26,22 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.rowHeight = 120
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return moviesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath)
-            
-        // 데이터 설정 등의 작업
-        cell.textLabel?.text = "Row \(indexPath.row) in Section \(indexPath.section)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        
+        let movie = moviesArray[indexPath.row]
+        
+        cell.mainImgView.image = movie.movieImg
+        cell.movieNameLabel.text = movie.movieName
+        cell.descriptionLabel.text = movie.movieDescription
         
         return cell
     }
 }
-
