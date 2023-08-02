@@ -7,9 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
-    
-    var moviesArray: [Movie] = []
+class ViewController: UIViewController {
     
     var movieDataManager = DataManager()
     
@@ -24,18 +22,19 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         tableView.rowHeight = 120
         
-        movieDataManager.makeMovieData()
-        moviesArray = movieDataManager.getMovieData()
+        movieDataManager.makeMovieData()        
     }
-    
+}
+
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moviesArray.count
+        return movieDataManager.getMovieData().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
-        let movie = moviesArray[indexPath.row]
+        let movie = movieDataManager.getMovieData()[indexPath.row]
         
         cell.mainImgView.image = movie.movieImg
         cell.movieNameLabel.text = movie.movieName
