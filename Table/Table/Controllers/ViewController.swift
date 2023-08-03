@@ -26,6 +26,12 @@ class ViewController: UIViewController {
         
         movieDataManager.makeMovieData()
     }
+    
+    
+    @IBAction func addBtnTapped(_ sender: UIBarButtonItem) {
+        movieDataManager.updateMovieData()
+        tableView.reloadData()
+    }
 }
 
 extension ViewController: UITableViewDataSource {
