@@ -25,6 +25,8 @@ class ViewController: UIViewController {
         tableView.delegate = self
         
         movieDataManager.makeMovieData()
+        
+        title = "영화목록"
     }
     
     
