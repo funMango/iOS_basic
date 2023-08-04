@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  TableCode
+//  MemberList
 //
 //  Created by 이민호 on 2023/08/04.
 //
