@@ -10,11 +10,38 @@ import UIKit
 final class ViewController: UIViewController {
     
     private let tableView = UITableView()
+    
+    var memberListManager = MemberListManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
+        
+        view.backgroundColor = .white
+        setupDatas()
+        setupTableView()
+        setupNavBar()
         setUpTableViewConstraints()        
+    }
+    
+    func setupNavBar() {
+        title = "회원목록"
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground() // 불투명으로
+        appearance.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+    
+    func setupTableView() {
+        tableView.dataSource = self
+        tableView.rowHeight = 60
+    }
+    
+    func setupDatas() {
+        memberListManager.makeMemberListDatas()
     }
     
     func setUpTableViewConstraints() {
@@ -32,7 +59,7 @@ final class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return memberListManager.getMemberList().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
