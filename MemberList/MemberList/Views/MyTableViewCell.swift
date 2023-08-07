@@ -9,6 +9,15 @@ import UIKit
 
 class MyTableViewCell: UITableViewCell {
     
+    var member: Member? {
+        didSet {
+            guard var member = member else {return}
+            mainImageView.image = member.memberImage
+            memberNameLabel.text = member.name
+            addressLabel.text = member.address
+        }
+    }
+    
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
