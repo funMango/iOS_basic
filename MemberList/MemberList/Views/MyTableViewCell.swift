@@ -75,8 +75,8 @@ class MyTableViewCell: UITableViewCell {
             
             // self.leadingAnchor로 잡는 것보다 self.contentView.leadingAnchor로 잡는게 더 정확함 ⭐️
             // (cell은 기본뷰로 contentView를 가지고 있기 때문)
-            mainImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-            mainImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
+            mainImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            mainImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -88,7 +88,7 @@ class MyTableViewCell: UITableViewCell {
             
             // self.trailingAnchor로 잡는 것보다 self.contentView.trailingAnchor로 잡는게 더 정확함 ⭐️
             // (cell은 기본뷰로 contentView를 가지고 있기 때문)
-            stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: self.mainImageView.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: self.mainImageView.bottomAnchor)
         ])

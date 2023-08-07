@@ -38,6 +38,7 @@ final class ViewController: UIViewController {
     func setupTableView() {
         tableView.dataSource = self
         tableView.rowHeight = 60
+        tableView.register(MyTableViewCell.self, forCellReuseIdentifier: "MemberCell")
     }
     
     func setupDatas() {
@@ -63,6 +64,13 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath) as! MyTableViewCell
+        
+        cell.mainImageView.image = memberListManager[indexPath.row].memberImage
+        cell.memberNameLabel.text = memberListManager[indexPath.row].name
+        cell.addressLabel.text = memberListManager[indexPath.row].address
+        cell.selectionStyle = .none
+        
+        return cell
     }
 }
