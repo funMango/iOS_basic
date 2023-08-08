@@ -80,6 +80,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let detailVC = DetailViewController()
+        detailVC.member = memberListManager[indexPath.row]
         
         navigationController?.pushViewController(detailVC, animated: true)
     }    
