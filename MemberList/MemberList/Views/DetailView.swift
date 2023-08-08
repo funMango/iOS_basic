@@ -58,7 +58,7 @@ class DetailView: UIView {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.text = "멤버번호:"
+        label.text = "이름:"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -86,7 +86,7 @@ class DetailView: UIView {
     let ageLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.text = "멤버번호:"
+        label.text = "나이:"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -114,7 +114,7 @@ class DetailView: UIView {
     let phoneNumberLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.text = "멤버번호:"
+        label.text = "전화번호:"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -129,7 +129,7 @@ class DetailView: UIView {
     }()
     
     lazy var phoneNumberStackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [ageLabel, ageTextField])
+        let stack = UIStackView(arrangedSubviews: [phoneNumberLabel, phoneNumberTextField])
         stack.spacing = 5
         stack.axis = .horizontal
         stack.distribution = .fill
@@ -142,7 +142,7 @@ class DetailView: UIView {
     let addressLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.text = "멤버번호:"
+        label.text = "주소:"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -157,7 +157,7 @@ class DetailView: UIView {
     }()
     
     lazy var addressStackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [ageLabel, ageTextField])
+        let stack = UIStackView(arrangedSubviews: [addressLabel, addressTextField])
         stack.spacing = 5
         stack.axis = .horizontal
         stack.distribution = .fill
@@ -196,7 +196,7 @@ class DetailView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        setupStackView()        
+        setupStackView()
     }
     
     required init?(coder: NSCoder) {

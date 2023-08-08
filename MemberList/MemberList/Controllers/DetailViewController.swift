@@ -8,22 +8,26 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    private let detailView = DetailView()
+    
+    var member: Member?
+    
+    override func loadView() {
+        view = detailView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-          
+        setupButtonAction()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupButtonAction() {
+        detailView.btn_save.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
-    */
+
+    @objc func saveButtonTapped() {
+        print("버튼이 눌림")
+    }
 
 }
