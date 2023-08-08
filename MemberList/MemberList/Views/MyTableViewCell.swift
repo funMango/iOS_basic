@@ -18,7 +18,7 @@ class MyTableViewCell: UITableViewCell {
         }
     }
     
-    let mainImageView: UIImageView = {
+    var mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

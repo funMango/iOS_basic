@@ -8,6 +8,7 @@
 import UIKit
 
 struct Member {
+    
     lazy var memberImage: UIImage? = {
         guard let name = name else {
             return UIImage(systemName: "person")
