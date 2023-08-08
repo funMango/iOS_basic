@@ -26,7 +26,7 @@ final class MemberListManager {
         return memberList
     }
     
-    func makeNewMemeber(_ member: Member) {
+    func makeNewMember(_ member: Member) {
         memberList.append(member)
     }
     

@@ -23,6 +23,12 @@ final class ViewController: UIViewController {
         setUpTableViewConstraints()        
     }
     
+    // detail에서 업데이트된 정보를 보여주기 위해서는 tableView를 reload해야한다.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
+    
     func setupNavBar() {
         title = "회원목록"
         
