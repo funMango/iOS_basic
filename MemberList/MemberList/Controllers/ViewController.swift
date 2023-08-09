@@ -12,6 +12,13 @@ final class ViewController: UIViewController {
     private let tableView = UITableView()
     
     var memberListManager = MemberListManager()
+    
+    lazy var btn_plus: UIBarButtonItem = {
+        let btn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusBtnTapped))
+        return btn
+    }()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +46,8 @@ final class ViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        self.navigationItem.rightBarButtonItem = self.btn_plus
     }
     
     func setupTableView() {
@@ -62,6 +71,12 @@ final class ViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
+    }
+    
+    @objc func plusBtnTapped() {
+        let detailVC = DetailViewController()
+        navigationController?.pushViewController(detailVC, animated: true)
+        
     }
 }
 

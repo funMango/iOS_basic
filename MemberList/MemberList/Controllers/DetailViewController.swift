@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class DetailViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setupData()
         setupButtonAction()
+        setupTapGestures()
     }
     
     private func setupData() {
@@ -29,6 +31,29 @@ class DetailViewController: UIViewController {
     
     func setupButtonAction() {
         detailView.btn_save.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+    }
+    
+    //MARK: - 이미지뷰가 눌렸을때의 동작 설정
+    
+    // 제스처 설정 (아마자뷰가 눌리면, 실행)
+    func setupTapGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(setupImagePicker))
+        detailView.mainImageView.addGestureRecognizer(tapGesture)
+        detailView.mainImageView.isUserInteractionEnabled = true
+    }        
+    
+    @objc func setupImagePicker() {
+        // 기본설정 셋팅
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 0
+        configuration.filter = .any(of: [.images, .videos])
+        
+        // 기본설정을 가지고, 피커뷰컨트롤러 생성
+        let picker = PHPickerViewController(configuration: configuration)
+        // 피커뷰 컨트롤러의 대리자 설정
+        picker.delegate = self
+        // 피커뷰 띄우기
+        self.present(picker, animated: true, completion: nil)
     }
     
     //MARK: - SAVE버튼 또는 UPDATE버튼이 눌렸을때의 동작
@@ -91,4 +116,26 @@ class DetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
+}
+
+extension DetailViewController: PHPickerViewControllerDelegate {
+    
+    // 사진이 선택이 된 후에 호출되는 메서드
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        // 피커뷰 dismiss
+        picker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                DispatchQueue.main.async {
+                    // 이미지뷰에 표시
+                    self.detailView.mainImageView.image = image as? UIImage
+                }
+            }
+        } else {
+            print("이미지 못 불러왔음!!!!")
+        }
+    }
 }
