@@ -29,14 +29,14 @@ class DetailView: UIView {
             phoneNumberTextField.text = member.phone
             addressTextField.text = member.address
             
-//            // 나이항목 (옵셔널 정수형)
-//            guard let age = member.age else {
-//                // 나이 항목이 없으면 빈문자열로 표시
-//                ageTextField.text = ""
-//                return
-//            }
-//            // 나이 항목이 있으면 정수 ==> 문자열 변환 표기
-//            ageTextField.text = "\(age)"
+            //            // 나이항목 (옵셔널 정수형)
+            //            guard let age = member.age else {
+            //                // 나이 항목이 없으면 빈문자열로 표시
+            //                ageTextField.text = ""
+            //                return
+            //            }
+            //            // 나이 항목이 있으면 정수 ==> 문자열 변환 표기
+            //            ageTextField.text = "\(age)"
             
             // 나이항목의 구현
             ageTextField.text = member.age != nil ? "\(member.age!)" : ""
@@ -232,6 +232,7 @@ class DetailView: UIView {
         super.init(frame: frame)
         backgroundColor = .white
         setupStackView()
+        setupMemberIdTextField()
     }
     
     required init?(coder: NSCoder) {
@@ -240,6 +241,10 @@ class DetailView: UIView {
     
     func setupStackView() {
         self.addSubview(stackView)
+    }
+    
+    func setupMemberIdTextField() {
+        memberIdTextField.delegate = self
     }
     
     //MARK: - 오토레이아웃 셋팅
@@ -279,5 +284,20 @@ class DetailView: UIView {
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         ])
+    }
+}
+    
+//MARK: - 텍스트필드 델리게이트 구현
+    
+// memberIdTextField 접근 못하게
+extension DetailView: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        if textField == memberIdTextField {
+            return false
+        }
+        
+        return true
     }
 }
