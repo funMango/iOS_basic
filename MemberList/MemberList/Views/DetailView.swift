@@ -232,6 +232,7 @@ class DetailView: UIView {
         super.init(frame: frame)
         backgroundColor = .white
         setupStackView()
+        setupNotification()
         setupMemberIdTextField()
     }
     
@@ -241,6 +242,10 @@ class DetailView: UIView {
     
     func setupStackView() {
         self.addSubview(stackView)
+    }
+    
+    func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(moveUpAction), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     func setupMemberIdTextField() {
@@ -285,6 +290,28 @@ class DetailView: UIView {
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         ])
     }
+    
+    //MARK: - 키보드가 나타날때와 내려갈때의 애니메이션 셋팅
+    
+    @objc func moveUpAction() {
+        stackViewTopConstraint.constant = -20
+        UIView.animate(withDuration: 0.2) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    @objc func moveDownAction() {
+        stackViewTopConstraint.constant = 10
+        UIView.animate(withDuration: 0.2) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    
 }
     
 //MARK: - 텍스트필드 델리게이트 구현
