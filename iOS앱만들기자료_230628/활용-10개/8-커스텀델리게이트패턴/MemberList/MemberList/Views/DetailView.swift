@@ -333,7 +333,7 @@ final class DetailView: UIView {
     
     deinit {
         // 노티피케이션의 등록 해제 (해제안하면 계속 등록될 수 있음) ⭐️
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCe nter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }

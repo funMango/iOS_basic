@@ -246,6 +246,7 @@ class DetailView: UIView {
     
     func setupNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(moveUpAction), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(moveDownAction), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func setupMemberIdTextField() {
@@ -307,11 +308,15 @@ class DetailView: UIView {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
+    }
+    //MARK: - 소멸자 구현
+    
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
-    
 }
     
 //MARK: - 텍스트필드 델리게이트 구현
