@@ -31,10 +31,10 @@ final class ViewController: UIViewController {
     }
     
     // detail에서 업데이트된 정보를 보여주기 위해서는 tableView를 reload해야한다.
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        tableView.reloadData()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        tableView.reloadData()
+//    }
     
     func setupNavBar() {
         title = "회원목록"
@@ -101,9 +101,23 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let detailVC = DetailViewController()
+        detailVC.delegate = self
+        
         detailVC.member = memberListManager[indexPath.row]
         
         navigationController?.pushViewController(detailVC, animated: true)
     }    
+}
+
+extension ViewController: MemberDelegate {
+    func addNewMember(_ member: Member) {
+        memberListManager.makeNewMember(member)
+        tableView.reloadData()
+    }
+    
+    func update(index: Int, _ member: Member) {
+        memberListManager.updateMemberInfo(index: index, member)
+        tableView.reloadData()
+    }
 }
 
