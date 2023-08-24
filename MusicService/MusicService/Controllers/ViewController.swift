@@ -11,9 +11,15 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
     
+    var datas : MusicData
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+    }
+    
+    func setup() {
+        datas.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

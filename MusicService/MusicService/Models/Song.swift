@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Movie {
+struct Song {
     var img: UIImage?
     let name: String
     let description: String

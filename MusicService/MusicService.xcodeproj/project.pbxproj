@@ -14,7 +14,8 @@
 		5A1FFD402A939461004D6129 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A1FFD3F2A939461004D6129 /* Assets.xcassets */; };
 		5A1FFD432A939461004D6129 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A1FFD412A939461004D6129 /* LaunchScreen.storyboard */; };
 		5A1FFD4E2A946890004D6129 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FFD4D2A946890004D6129 /* MusicCell.swift */; };
-		5A1FFD502A946CCC004D6129 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FFD4F2A946CCC004D6129 /* Music.swift */; };
+		5A5EDCFA2A970F9E0003E346 /* MusicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5EDCF92A970F9E0003E346 /* MusicData.swift */; };
+		5A5EDCFC2A9710010003E346 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5EDCFB2A9710010003E346 /* Song.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 		5A1FFD422A939461004D6129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A1FFD442A939461004D6129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A1FFD4D2A946890004D6129 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
-		5A1FFD4F2A946CCC004D6129 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		5A5EDCF92A970F9E0003E346 /* MusicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicData.swift; sourceTree = "<group>"; };
+		5A5EDCFB2A9710010003E346 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +94,8 @@
 		5A1FFD4C2A9394C5004D6129 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5A1FFD4F2A946CCC004D6129 /* Music.swift */,
+				5A5EDCF92A970F9E0003E346 /* MusicData.swift */,
+				5A5EDCFB2A9710010003E346 /* Song.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,9 +171,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A5EDCFC2A9710010003E346 /* Song.swift in Sources */,
 				5A1FFD3B2A939461004D6129 /* ViewController.swift in Sources */,
 				5A1FFD372A939461004D6129 /* AppDelegate.swift in Sources */,
-				5A1FFD502A946CCC004D6129 /* Music.swift in Sources */,
+				5A5EDCFA2A970F9E0003E346 /* MusicData.swift in Sources */,
 				5A1FFD392A939461004D6129 /* SceneDelegate.swift in Sources */,
 				5A1FFD4E2A946890004D6129 /* MusicCell.swift in Sources */,
 			);
