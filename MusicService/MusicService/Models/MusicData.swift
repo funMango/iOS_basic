@@ -1,5 +1,4 @@
 import UIKit
-
 // 실제 API에서 받게 되는 정보
 
 struct MusicData: Codable {
@@ -75,3 +74,19 @@ func getMethod(completion: @escaping ([Music]?) -> Void) {
         }
     }.resume()     // 시작
 }
+
+func getDatas(completion: @escaping ([Music]?, Error?) -> Void) {
+    getMethod { musicResults in
+        if let musicResults = musicResults {
+            completion(musicResults, nil)
+        } else {
+            let error = NSError(domain: "YourErrorDomain", code: 404, userInfo: nil)
+            completion(nil, error)
+        }
+    }
+}
+
+
+
+
+

@@ -18,9 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
     }
     
-    func setup() {
-        datas.
-    }
+//    func setup() {
+//        datas.getMe
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
