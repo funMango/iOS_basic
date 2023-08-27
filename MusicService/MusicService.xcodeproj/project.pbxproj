@@ -16,6 +16,7 @@
 		5A1FFD4E2A946890004D6129 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FFD4D2A946890004D6129 /* MusicCell.swift */; };
 		5A5EDCFA2A970F9E0003E346 /* MusicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5EDCF92A970F9E0003E346 /* MusicData.swift */; };
 		5A5EDCFC2A9710010003E346 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5EDCFB2A9710010003E346 /* Song.swift */; };
+		5A8BA5112A9AFE0200D43BBA /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BA5102A9AFE0200D43BBA /* constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5A1FFD4D2A946890004D6129 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		5A5EDCF92A970F9E0003E346 /* MusicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicData.swift; sourceTree = "<group>"; };
 		5A5EDCFB2A9710010003E346 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		5A8BA5102A9AFE0200D43BBA /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				5A1FFD362A939461004D6129 /* AppDelegate.swift */,
 				5A1FFD382A939461004D6129 /* SceneDelegate.swift */,
+				5A8BA50F2A9AFDEB00D43BBA /* Helpers */,
 				5A1FFD4C2A9394C5004D6129 /* Models */,
 				5A1FFD4B2A9394BC004D6129 /* Views */,
 				5A1FFD4A2A93948F004D6129 /* Controllers */,
@@ -98,6 +101,14 @@
 				5A5EDCFB2A9710010003E346 /* Song.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5A8BA50F2A9AFDEB00D43BBA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5A8BA5102A9AFE0200D43BBA /* constant.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A5EDCFC2A9710010003E346 /* Song.swift in Sources */,
+				5A8BA5112A9AFE0200D43BBA /* constant.swift in Sources */,
 				5A1FFD3B2A939461004D6129 /* ViewController.swift in Sources */,
 				5A1FFD372A939461004D6129 /* AppDelegate.swift in Sources */,
 				5A5EDCFA2A970F9E0003E346 /* MusicData.swift in Sources */,
