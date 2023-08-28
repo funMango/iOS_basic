@@ -75,6 +75,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="img_main" destination="tu9-yc-IoU" id="23d-cu-wNZ"/>
+                <outlet property="lbl_albumName" destination="LvG-N5-ALk" id="MmQ-7m-bHr"/>
+                <outlet property="lbl_artistName" destination="UTX-ZJ-kZu" id="BGA-zU-2Eg"/>
+                <outlet property="lbl_releaseDate" destination="je4-EW-Xha" id="Gfb-RG-hKS"/>
+                <outlet property="lbl_songName" destination="g7M-fc-cE3" id="nkH-bq-K7P"/>
+            </connections>
             <point key="canvasLocation" x="212.21374045801525" y="14.43661971830986"/>
         </tableViewCell>
     </objects>
